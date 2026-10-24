@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0a0d" />
+    <meta name="description" content="The complete CPIT 345 study guide, reimagined as a dark database adventure. All 34 study pages, five missions, and a searchable reader." />
+    <title>Database Quest — CPIT 345 Study Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="refine.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#home" aria-label="Database Quest home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-copy"><strong>DB<span>QUEST</span></strong><small>CPIT // 345</small></span>
+        </a>
+        <div class="sidebar-group-title">SYSTEM NAVIGATION <span>01 / 05</span></div>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="#home" class="side-link active" data-nav="home"><span class="nav-symbol">⌂</span> Command Center <span class="nav-dash">—</span></a>
+          <a href="#missions" class="side-link" data-nav="missions"><span class="nav-symbol">▦</span> Mission Select <span class="nav-dash">—</span></a>
+          <a href="#reader" class="side-link" data-nav="reader"><span class="nav-symbol">▤</span> Study Archive <span class="nav-dash">—</span></a>
+        </nav>
+        <div class="sidebar-group-title chapter-label">ACTIVE MISSIONS <span>05 FILES</span></div>
+        <nav class="chapter-nav" id="chapterNav" aria-label="Chapters"></nav>
+        <div class="sidebar-foot">
+          <div class="status-line"><span class="pulse-dot"></span> ARCHIVE ONLINE <span>v2.0</span></div>
+          <div class="side-progress"><div id="sideProgressFill"></div></div>
+          <span id="sideProgressText">0 / 34 pages completed</span>
+        </div>
+      </aside>
+
+      <main class="main" id="home">
+        <header class="topbar">
+          <button class="mobile-menu icon-button" id="menuButton" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+          <div class="breadcrumbs">DATABASE QUEST <span>/</span> <strong id="breadcrumbCurrent">COMMAND CENTER</strong></div>
+          <div class="topbar-actions">
+            <button class="search-trigger" id="searchTrigger" type="button"><span>⌕</span> SEARCH ARCHIVE <kbd>/</kbd></button>
+            <a class="top-download" href="CPIT-345_Study_Guide.pdf" download title="Download updated PDF">↓ <span>UPDATED PDF</span></a>
+          </div>
+        </header>
+
+        <section class="hero" aria-labelledby="heroTitle">
+          <div class="hero-grid" aria-hidden="true"></div>
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> THE COMPLETE CPIT 345 STUDY SYSTEM <span class="eyebrow-id">// V 2.0</span></div>
+            <h1 id="heroTitle">ENTER THE<br /><em>DATABASE</em><br />ARCHIVE<span class="hero-period">.</span></h1>
+            <p>Master the systems behind the data. Explore the complete study guide through five missions, 34 study pages, and one searchable command center.</p>
+            <div class="hero-actions">
+              <a href="#reader" id="continueButton" class="primary-button"><span class="button-diamond">◆</span> INITIALIZE STUDY <span class="button-arrow">↗</span></a>
+              <a href="#missions" class="text-button">EXPLORE MISSIONS <span>↘</span></a>
+            </div>
+            <div class="hero-micro">[ FIVE CHAPTERS PRESERVED IN FULL ] <span>//</span> NO CONTENT OMITTED</div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-ring ring-a"></div><div class="art-ring ring-b"></div>
+            <img src="database-core.png" alt="" />
+            <div class="art-label art-label-top">SYS.DB_CORE <span>● ACTIVE</span></div>
+            <div class="art-label art-label-bottom">DATA STREAM <span>██████████ 100%</span></div>
+          </div>
+          <div class="hero-bottom"><span>SCROLL TO DEPLOY MISSIONS</span><span class="hero-scroll">↓</span><span>DATABASE SYSTEMS // 2026</span></div>
+        </section>
+
+        <section class="stats-section" aria-label="Guide statistics">
+          <div class="stat"><div class="stat-icon">◈</div><div><strong>05</strong><span>CORE MISSIONS</span></div></div>
+          <div class="stat"><div class="stat-icon">▤</div><div><strong>34</strong><span>STUDY PAGES</span></div></div>
+          <div class="stat"><div class="stat-icon">◎</div><div><strong>100%</strong><span>SOURCE CONTENT</span></div></div>
+          <div class="stat progress-stat"><div class="stat-icon">↗</div><div><strong id="totalProgress">0%</strong><span>YOUR PROGRESS</span></div></div>
+        </section>
+
+        <section class="missions-section" id="missions" aria-labelledby="missionsTitle">
+          <div class="section-heading"><div><div class="eyebrow small"><span class="eyebrow-line"></span> CHOOSE YOUR PATH <span>// 05 MISSIONS</span></div><h2 id="missionsTitle">MISSION <span>SELECT</span></h2></div><p>Five chapters. One complete database operations archive. Select a mission to enter its study file.</p></div>
+          <div class="mission-grid" id="missionGrid"></div>
+        </section>
+
+        <section class="reader-section" id="reader" aria-labelledby="readerTitle">
+          <div class="section-heading reader-heading"><div><div class="eyebrow small"><span class="eyebrow-line"></span> STUDY SOURCE // FULL TEXT</div><h2 id="readerTitle">STUDY <span>ARCHIVE</span></h2></div><p>Every line of the selected study chapters is available here, in its original order. Search, navigate, and track your progress.</p></div>
+          <div class="reader-shell">
+            <div class="reader-topline"><span><span class="pulse-dot"></span> ARCHIVE ACCESS GRANTED</span><span>FILE: CPIT-345_STUDY_GUIDE.PDF</span></div>
+            <div class="reader-main">
+              <aside class="reader-rail" aria-label="Page navigation">
+                <div class="rail-head"><span>MISSION DIRECTORY</span><span>34 PAGES</span></div>
+                <div class="rail-chapters" id="railChapters"></div>
+              </aside>
+              <div class="reader-content">
+                <div class="reading-status"><span id="readerChapterIndex">MISSION 01 / 05</span><span id="readerPageCounter">PAGE 01 / 34</span></div>
+                <div class="reader-title-row"><div><div class="reader-kicker" id="readerKicker">CHAPTER 01</div><h3 id="pageTitle">Loading archive…</h3></div><button class="mark-button" id="markButton" type="button"><span>◇</span> MARK COMPLETE</button></div>
+                <div class="reader-meta"><span>STUDY GUIDE TEXT</span><span id="chapterRange">PAGES 01—08</span></div>
+                <article class="guide-page" id="guidePage" aria-live="polite"></article>
+                <div class="page-footer"><span id="pageHash">END OF SOURCE PAGE 01</span><span>CPIT 345 // DATABASE QUEST</span></div>
+                <div class="page-controls"><button id="prevPage" type="button"><span>←</span> PREVIOUS PAGE</button><div class="page-dots" id="pageDots" aria-label="Chapter page positions"></div><button id="nextPage" type="button">NEXT PAGE <span>→</span></button></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer"><div class="footer-brand">DB<span>QUEST</span><small> // CPIT 345</small></div><div>COMPLETE STUDY TEXT • 34 PAGES • 5 CHAPTERS</div><a href="CPIT-345_Study_Guide.pdf" download>DOWNLOAD UPDATED PDF ↗</a></footer>
+      </main>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" hidden>
+      <div class="search-backdrop" id="searchBackdrop"></div>
+      <section class="search-modal" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+        <div class="search-modal-head"><span id="searchTitle">⌕ &nbsp; SEARCH THE ARCHIVE</span><button id="closeSearch" type="button" aria-label="Close search">✕</button></div>
+        <label class="search-input-wrap"><span>›</span><input id="searchInput" type="search" placeholder="Search all 34 pages…" autocomplete="off" /><kbd>ESC</kbd></label>
+        <div class="search-results" id="searchResults"><div class="search-empty">Enter a term to search the entire study guide.</div></div>
+        <div class="search-modal-foot"><span>RESULTS FROM STUDY SOURCE TEXT</span><span>SELECT A RESULT TO OPEN ITS PAGE ↗</span></div>
+      </section>
+    </div>
+  </body>
+</html>
